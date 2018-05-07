@@ -16,6 +16,10 @@ public class WaitManager : MonoBehaviour {
     public int waterReductionIncrease;
     public int medicalSuppliesReductionIncrease;
     public int weaponsReductionIncrease;
+    //private
+    private GameObject Player;
+    private Transform OutOfBunker;
+    //functions
     private void IncreaseReduction()
     {
         foodReduction += foodReductionIncrease;
@@ -68,9 +72,12 @@ public class WaitManager : MonoBehaviour {
     {
         RoundTimer.timeleft = 30;
     }
+    
     //start gather phase (when over kill player or if the player got to the bunker the wait phase will be called)
     public void StartGatherPhase()
     {
+        ResourceSpawner.instance.SpawnResources();
+        Player.transform.position = OutOfBunker.transform.position;
         StartTimer();
         isWaiting = false;
         UIManager.instance.SkipWaitButton.gameObject.SetActive(false);
@@ -78,6 +85,7 @@ public class WaitManager : MonoBehaviour {
     //got to bunker wait for next gather phase
     public void StartWaitPhase()
     {
+        ResourceSpawner.instance.ClearSpawnedResources();
         StartTimer();
         isWaiting = true;
         UIManager.instance.SkipWaitButton.gameObject.SetActive(true);
@@ -122,6 +130,8 @@ public class WaitManager : MonoBehaviour {
     }
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        OutOfBunker = GetComponent<Bunker>().OutOfBunker;
         StartGatherPhase();
     }
 

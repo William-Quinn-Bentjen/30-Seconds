@@ -291,6 +291,7 @@
     <Compile Include="Assets\Quinn\Scripts\Resource\Resource.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Water.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Weapon.cs" />
+    <Compile Include="Assets\Quinn\Scripts\ResourceSpawner.cs" />
     <Compile Include="Assets\Quinn\Scripts\UIManager.cs" />
     <Compile Include="Assets\Quinn\Scripts\WaitManager.cs" />
   </ItemGroup>
