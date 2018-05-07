@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Dev/Starting Scene.unity
+- path: Assets/harley/game.unity
   isLoaded: 1
   isActive: 1
