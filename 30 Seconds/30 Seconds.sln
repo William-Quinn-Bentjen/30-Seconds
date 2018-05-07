@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "30 Seconds", "30 Seconds.csproj", "{3264B905-6F36-2045-FF3C-0496379D469B}"
 EndProject
 Global

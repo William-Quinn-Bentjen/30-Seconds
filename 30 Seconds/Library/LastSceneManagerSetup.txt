@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/harley/game.unity
+- path: Assets/Quinn/Scenes/Quinn Work Scene.unity
   isLoaded: 1
   isActive: 1
