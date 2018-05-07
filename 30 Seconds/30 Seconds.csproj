@@ -292,6 +292,7 @@
     <Compile Include="Assets\Quinn\Scripts\Resource\Water.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Weapon.cs" />
     <Compile Include="Assets\Quinn\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Quinn\Scripts\WaitManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

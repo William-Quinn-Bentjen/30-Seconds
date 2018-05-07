@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
     public Text TimerText;
+    public Button SkipWaitButton;
     [Header("Backpack Resources Text")]
     public Text FoodInBackpack;
     private int FoodInBackpackValue;

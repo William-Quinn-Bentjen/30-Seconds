@@ -9,6 +9,7 @@ public class Bunker : MonoBehaviour {
         {
             //dump backpack and start the 30 seconds of "surviving" in the bunker
             ResourceHolder.EmptyBackpack();
+            WaitManager.instance.StartWaitPhase();
         }
     }
 }

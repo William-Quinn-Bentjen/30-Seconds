@@ -19,6 +19,10 @@ public class timer : MonoBehaviour {
             timeleft -= Time.deltaTime;
 
         }
+        else
+        {
+            WaitManager.instance.OnTimeUp();
+        }
         //tell the UI manager 
         UIManager.instance.UpdateTimer(timeleft);
         //Old text change

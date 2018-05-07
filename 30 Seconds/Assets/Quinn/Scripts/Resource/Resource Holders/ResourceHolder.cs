@@ -101,5 +101,4 @@ public class ResourceHolder : MonoBehaviour {
         }
         return retVal;
     }
-
 }
