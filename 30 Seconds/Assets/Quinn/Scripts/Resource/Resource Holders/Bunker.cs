@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bunker : MonoBehaviour {
+    public Transform OutOfBunker;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
