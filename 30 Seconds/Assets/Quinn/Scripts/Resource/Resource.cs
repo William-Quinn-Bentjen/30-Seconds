@@ -22,8 +22,7 @@ public class Resource : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ResourceHolder.Backpack.Add(this);
-            gameObject.SetActive(false);
+            ResourceHolder.AddToBackPack(this);
         }
     }
 }

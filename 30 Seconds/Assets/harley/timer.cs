@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class timer : MonoBehaviour {
-    public Text text;
+    //old text
+    //public Text text;
     public float timeleft;
     // Use this for initialization
     void Start () {
@@ -18,6 +19,9 @@ public class timer : MonoBehaviour {
             timeleft -= Time.deltaTime;
 
         }
-        text.text = "Time Left:" + timeleft.ToString("0");
+        //tell the UI manager 
+        UIManager.instance.UpdateTimer(timeleft);
+        //Old text change
+        //text.text = "Time Left:" + timeleft.ToString("0");
     }
 }

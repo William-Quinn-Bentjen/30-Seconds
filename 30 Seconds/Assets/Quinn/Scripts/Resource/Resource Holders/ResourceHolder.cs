@@ -5,6 +5,35 @@ using UnityEngine;
 public class ResourceHolder : MonoBehaviour {
     public static List<Resource> Backpack = new List<Resource>();
     public static List<Resource> Bunker = new List<Resource>();
+    public static void AddToBackPack(Resource resource)
+    {
+        Food foodCheck = resource.GetComponent<Food>();
+        Water waterCheck = resource.GetComponent<Water>();
+        MedicalSupplies medicalSuppliesCheck = resource.GetComponent<MedicalSupplies>();
+        Weapon weaponCheck = resource.GetComponent<Weapon>();
+        if (foodCheck)
+        {
+            //add food
+            UIManager.instance.UpdateBackpackFood();
+        }
+        else if (waterCheck)
+        {
+            //add water
+            UIManager.instance.UpdateBackpackWater();
+        }
+        else if (medicalSuppliesCheck)
+        {
+            //add meds
+            UIManager.instance.UpdateBackpackMedicalSupplies();
+        }
+        else if (weaponCheck)
+        {
+            //add weapon
+            UIManager.instance.UpdateBackpackWeapons();
+        }
+        Backpack.Add(resource);
+        resource.gameObject.SetActive(false);
+    }
     public static void EmptyBackpack(bool emptyIntoBunker = true)
     {
         if (emptyIntoBunker)
@@ -16,6 +45,9 @@ public class ResourceHolder : MonoBehaviour {
                 Backpack.RemoveAt(0);
             }
         }
+        //reset the UI for the backpack
+        UIManager.instance.ResetBackPackResources();
+        UIManager.instance.UpdateBunkerResources();
     }
     public static List<Food> GetFood()
     {
