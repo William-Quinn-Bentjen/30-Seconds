@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_movment : MonoBehaviour {
+public class player_movment : MonoBehaviour,IDamageable {
     public float speed;
+    public int heath;
     // Use this for initialization
     void Start () {
 		
@@ -28,5 +29,13 @@ public class player_movment : MonoBehaviour {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
 
+    }
+    public void takeDamage(int damageTaken)
+    {
+        heath -= damageTaken;
+        if(heath <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
