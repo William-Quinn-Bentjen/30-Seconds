@@ -84,7 +84,7 @@ public class WaitManager : MonoBehaviour {
     public void StartGatherPhase()
     {
         ResourceSpawner.instance.SpawnResources();
-        Player.transform.position = OutOfBunker.transform.position;
+        Player.transform.SetPositionAndRotation(OutOfBunker.transform.position, OutOfBunker.transform.rotation);
         StartTimer();
         isWaiting = false;
         PlayerMovement.enabled = true;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player_movment : MonoBehaviour,IDamageable {
     public float speed;
+    public float turnSpeed;
     public int heath;
     // Use this for initialization
     void Start () {
@@ -14,24 +15,28 @@ public class player_movment : MonoBehaviour,IDamageable {
 	void Update () {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-            /*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.position += Vector3.forward * speed * Time.deltaTime;
+            ///*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += Vector3.back * speed * Time.deltaTime;
-            /*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 180, 0);
+            //transform.position += Vector3.back * speed * Time.deltaTime;
+            ///*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.position += -transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-            /*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 90, 0);
+            //transform.position += Vector3.left * speed * Time.deltaTime;
+            ///*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, 90, 0);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - (turnSpeed * Time.deltaTime), 0);
             
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            /*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, -90, 0);
+            //transform.position += Vector3.right * speed * Time.deltaTime;
+            ///*transform.GetChild(0).*/transform.rotation = Quaternion.Euler(0, -90, 0);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + (turnSpeed * Time.deltaTime), 0);
         }
 
     }
