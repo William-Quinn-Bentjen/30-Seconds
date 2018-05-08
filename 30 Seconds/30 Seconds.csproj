@@ -286,6 +286,7 @@
     <Compile Include="Assets\harley\damige.cs" />
     <Compile Include="Assets\harley\player_movment.cs" />
     <Compile Include="Assets\harley\timer.cs" />
+    <Compile Include="Assets\Quinn\Scripts\DeathScreen.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Food.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\MedicalSupplies.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Resource Holders\Bunker.cs" />

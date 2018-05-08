@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114204227333201846}
   - component: {fileID: 114887424318342026}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abdf5dcfd37eb443aa8a0674b22081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 223452122234399550}
   TimerText: {fileID: 114109154712217348}
   SkipWaitButton: {fileID: 114507708012011020}
   FoodInBackpack: {fileID: 114550675114871368}
