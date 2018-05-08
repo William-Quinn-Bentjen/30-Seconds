@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class WaitManager : MonoBehaviour {
     public static WaitManager instance;
     public player_movment PlayerMovement;

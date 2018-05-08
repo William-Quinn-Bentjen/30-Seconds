@@ -14,7 +14,7 @@ public class DeathScreen : MonoBehaviour {
     }
     public void PlayAgain()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game Starting Scene");
     }
     public void EnableDeathScreen(string deathInfo)
     {

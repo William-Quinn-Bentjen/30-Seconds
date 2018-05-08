@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Quinn/Scenes/Quinn Work Scene.unity
-    guid: a25deb3871458cd428789cd0db5c39ab
+    path: Assets/Dev/Game Starting Scene.unity
+    guid: e89f2381dd0fe8d488eb62c907e5eba3
