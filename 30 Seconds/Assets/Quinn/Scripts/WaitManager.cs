@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaitManager : MonoBehaviour {
     public static WaitManager instance;
+    public player_movment PlayerMovement;
     public timer RoundTimer;
     public bool isWaiting = false;
     [Header("BASE Resource reduction")]
@@ -27,7 +28,7 @@ public class WaitManager : MonoBehaviour {
         medicalSuppliesReduction += medicalSuppliesReductionIncrease;
         weaponsReduction += weaponsReductionIncrease;
     }
-    public void ReduceResources()
+    public bool ReduceResources()
     {
         List<Food> food = ResourceHolder.GetFood();
         List<MedicalSupplies> medicalSupplies = ResourceHolder.GetMedicalSupplies();
@@ -38,6 +39,8 @@ public class WaitManager : MonoBehaviour {
         {
             //player is dead...... do something
             Debug.Log("Player died from lack of resources");
+            DeathScreen.instance.EnableDeathScreen("Not having enough resources to survive");
+            return false;
         }
         else
         {
@@ -65,7 +68,10 @@ public class WaitManager : MonoBehaviour {
             IncreaseReduction();
             //update the UI for in bunker
             UIManager.instance.UpdateBunkerResources();
+            //had enough resources to live?
+            return true;
         }
+        
         
     }
     public void StartTimer()
@@ -80,6 +86,7 @@ public class WaitManager : MonoBehaviour {
         Player.transform.position = OutOfBunker.transform.position;
         StartTimer();
         isWaiting = false;
+        PlayerMovement.enabled = true;
         UIManager.instance.SkipWaitButton.gameObject.SetActive(false);
     }
     //got to bunker wait for next gather phase
@@ -88,6 +95,7 @@ public class WaitManager : MonoBehaviour {
         ResourceSpawner.instance.ClearSpawnedResources();
         StartTimer();
         isWaiting = true;
+        PlayerMovement.enabled = false;
         UIManager.instance.SkipWaitButton.gameObject.SetActive(true);
     }
     public void SkipWait()
@@ -95,15 +103,18 @@ public class WaitManager : MonoBehaviour {
         if (isWaiting)
         {
             //reduce resources and see if the player survived 
-            ReduceResources();
-            //start the next phase (the reduce resources checks for death so this will only be run if the player didn't die)
-            StartGatherPhase();
+            if (ReduceResources())
+            {
+                //start the next phase (the reduce resources checks for death so this will only be run if the player didn't die)
+                StartGatherPhase();
+            }
         }
         else
         {
             throw new System.Exception("can't skip wait if isWaiting is false");
         }
     }
+    private bool playerDead = false;
     public void OnTimeUp()
     {
         if (isWaiting)
@@ -112,8 +123,13 @@ public class WaitManager : MonoBehaviour {
         }
         else
         {
-            //player didn't make it to the bunker.....
-            Debug.Log("player died from not getting to the bunker fast enough");
+            if (playerDead != true)
+            {
+                //player didn't make it to the bunker.....
+                Debug.Log("player died from not getting to the bunker fast enough");
+                DeathScreen.instance.EnableDeathScreen("Not getting to the bunker in time");
+                playerDead = true;
+            }
         }
     }
     private void Awake()

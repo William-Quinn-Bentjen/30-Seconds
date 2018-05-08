@@ -58,6 +58,7 @@ public class ResourceHolder : MonoBehaviour {
     public static List<Food> GetFood()
     {
         List<Food> retVal = new List<Food>();
+        int bunkerCount = Bunker.Count;
         foreach (Resource resource in Bunker)
         {
             Food foodCheck = resource.GetComponent<Food>();

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Quinn/Scenes/Quinn Work Scene.unity
+- path: Assets/Quinn/Scenes/Quinn Backup Work Scene.unity
   isLoaded: 1
   isActive: 1

@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114722550058143040}
   - component: {fileID: 114457023897844366}
   - component: {fileID: 114763143400567372}
+  - component: {fileID: 65562177450433244}
   m_Layer: 0
   m_Name: Bunker
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226174707600388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4551842876774708}
@@ -65,13 +66,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398876850305688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -14.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4362391167827434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65562177450433244
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398876850305688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &114346589360275864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c90f8a78f666dc4f8f792cc77669791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeleft: -1
+  timeleft: 30
+  player: {fileID: 0}
 --- !u!114 &114722550058143040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803afbf5adf2ba143b29d7cdb705b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 0}
   RoundTimer: {fileID: 114457023897844366}
   isWaiting: 1
   foodReduction: 1

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
+    public Canvas UI;
     public Text TimerText;
     public Button SkipWaitButton;
     [Header("Backpack Resources Text")]
