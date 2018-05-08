@@ -11,9 +11,33 @@ public class ResourceSpawner : MonoBehaviour {
     public void ClearSpawnedResources()
     {
         //destroy all children of the resources gameobject
-        while (Resources.transform.childCount != 0)
+        //int kiddoCount = Resources.transform.childCount;
+        //while (kiddoCount != 0)
+        //{
+        //    kiddoCount--;
+        //    Destroy(Resources.transform.GetChild(0));
+            
+        //}
+
+        //removes objects that aren't "in backpack or bunker"
+        for (int i = 0; i < Resources.transform.childCount; i++)
         {
-            Destroy(Resources.transform.GetChild(0));
+            GameObject resource = Resources.transform.GetChild(i).gameObject;
+            //is it in a backpack or bunker?
+            if (resource.activeSelf)
+            {
+                //if not destroy it
+                Destroy(resource);
+            }
+            //Transform kiddo = Resources.transform.GetChild(i);
+            //if(kiddo != null)
+            //{
+                
+            //    Destroy(kiddo);
+            //    i--;
+            //}
+           
+            
         }
     }
     public void SpawnResources()
