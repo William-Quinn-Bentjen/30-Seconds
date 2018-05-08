@@ -6,10 +6,10 @@ public class timer : MonoBehaviour {
     //old text
     //public Text text;
     public float timeleft;
+    public player_movment player;
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

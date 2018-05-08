@@ -38,12 +38,18 @@ public class ResourceHolder : MonoBehaviour {
     {
         if (emptyIntoBunker)
         {
-            while (Backpack.Count != 0)
+
+            for(int i =0; i < Backpack.Count; i++)
             {
-                //take item in first slot of list and dump it into the bunker
-                Bunker.Add(Backpack[0]);
-                Backpack.RemoveAt(0);
+                Bunker.Add(Backpack[i]);
             }
+            Backpack.Clear();
+            //while (Backpack.Count != 0)
+            //{
+            //    //take item in first slot of list and dump it into the bunker
+            //    Bunker.Add(Backpack[0]);
+            //    Backpack.RemoveAt(0);
+            //}
         }
         //reset the UI for the backpack
         UIManager.instance.ResetBackPackResources();

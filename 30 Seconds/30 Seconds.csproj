@@ -282,6 +282,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\harley\camra.cs" />
+    <Compile Include="Assets\harley\damige.cs" />
     <Compile Include="Assets\harley\player_movment.cs" />
     <Compile Include="Assets\harley\timer.cs" />
     <Compile Include="Assets\Quinn\Scripts\Resource\Food.cs" />
