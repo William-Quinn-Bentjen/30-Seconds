@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
     public Canvas UI;
     public Text TimerText;
     public Button SkipWaitButton;
+    public Text PickupPrompt;
     [Header("Backpack Resources Text")]
     public Text FoodInBackpack;
     private int FoodInBackpackValue;

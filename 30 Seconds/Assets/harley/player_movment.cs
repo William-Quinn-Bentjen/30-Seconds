@@ -6,13 +6,44 @@ public class player_movment : MonoBehaviour,IDamageable {
     public float speed;
     public float turnSpeed;
     public int heath;
+    public float PromptWaitForTime = .25f;
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        StartCoroutine("PickUpPrompt");
+    }
+    IEnumerator PickUpPrompt()
+    {
+        while(true)
+        {
+            if (UIManager.instance.PickupPrompt != null)
+            {
+                bool enableUI = false;
+                Collider[] cols = Physics.OverlapSphere(gameObject.transform.position, 1);
+                if (cols.Length > 0)
+                {
+                    foreach (Collider col in cols)
+                    {
+                        if (col.tag == "ITEM")
+                        {
+                            enableUI = true;
+                            break;
+                        }
+                    }
+                }
+                UIManager.instance.PickupPrompt.gameObject.SetActive(enableUI);
+                yield return new WaitForSeconds(PromptWaitForTime);
+
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetKey(KeyCode.W))
         {
             //transform.position += Vector3.forward * speed * Time.deltaTime;
